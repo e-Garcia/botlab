@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.ui
+package dev.egarcia.botlab.ui
 
 import android.app.Activity
 import android.graphics.Color
@@ -16,12 +16,12 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import ga.egarcia.botlab.Lab
-import ga.egarcia.botlab.analysis.BehaviorAnalyzer
-import ga.egarcia.botlab.analysis.Event
-import ga.egarcia.botlab.analysis.EventType
-import ga.egarcia.botlab.analysis.ReportText
-import ga.egarcia.botlab.env.EnvironmentProbe
+import dev.egarcia.botlab.Lab
+import dev.egarcia.botlab.analysis.BehaviorAnalyzer
+import dev.egarcia.botlab.analysis.Event
+import dev.egarcia.botlab.analysis.EventType
+import dev.egarcia.botlab.analysis.ReportText
+import dev.egarcia.botlab.env.EnvironmentProbe
 
 /**
  * The arena. Buttons, a text box, a feed and a swipe area, styled like the actions a social app has, all instrumented

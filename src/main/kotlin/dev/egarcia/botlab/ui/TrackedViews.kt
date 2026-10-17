@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.ui
+package dev.egarcia.botlab.ui
 
 import android.content.Context
 import android.graphics.Canvas
@@ -17,7 +17,7 @@ import android.view.inputmethod.InputConnectionWrapper
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ScrollView
-import ga.egarcia.botlab.Lab
+import dev.egarcia.botlab.Lab
 
 /*
  * These views behave normally but write down HOW they were operated. Every check here is something any app can do:

@@ -1,7 +1,7 @@
-package ga.egarcia.botlab
+package dev.egarcia.botlab
 
 import android.app.Application
-import ga.egarcia.botlab.env.RaspBridge
+import dev.egarcia.botlab.env.RaspBridge
 
 class BotLabApp : Application() {
     override fun onCreate() {

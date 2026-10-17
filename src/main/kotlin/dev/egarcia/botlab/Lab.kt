@@ -1,14 +1,14 @@
-package ga.egarcia.botlab
+package dev.egarcia.botlab
 
 import android.content.Context
 import android.os.Build
 import android.os.SystemClock
-import ga.egarcia.botlab.analysis.BehaviorAnalyzer
-import ga.egarcia.botlab.analysis.Event
-import ga.egarcia.botlab.analysis.EventType
-import ga.egarcia.botlab.analysis.ReportText
-import ga.egarcia.botlab.analysis.Session
-import ga.egarcia.botlab.env.EnvironmentProbe
+import dev.egarcia.botlab.analysis.BehaviorAnalyzer
+import dev.egarcia.botlab.analysis.Event
+import dev.egarcia.botlab.analysis.EventType
+import dev.egarcia.botlab.analysis.ReportText
+import dev.egarcia.botlab.analysis.Session
+import dev.egarcia.botlab.env.EnvironmentProbe
 import kotlinx.serialization.json.Json
 import java.io.File
 

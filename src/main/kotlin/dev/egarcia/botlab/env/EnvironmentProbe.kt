@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.env
+package dev.egarcia.botlab.env
 
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.content.Context
@@ -8,7 +8,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
 import android.view.accessibility.AccessibilityManager
-import ga.egarcia.botlab.analysis.EnvSignal
+import dev.egarcia.botlab.analysis.EnvSignal
 
 /**
  * What an ordinary app can learn about its surroundings with no special access, plus the freeRASP verdicts.
@@ -77,6 +77,6 @@ object EnvironmentProbe {
             "installer=${source ?: "none (sideloaded)"}, debuggable=$debuggable"
         }.getOrNull()
         describe(context.packageName)?.let { add(EnvSignal("self_install", "platform", "info", "This app: $it")) }
-        describe("ga.egarcia.harness")?.let { add(EnvSignal("harness_visible", "platform", "medium", "The harness app is visible to other apps: ga.egarcia.harness", it)) }
+        describe("dev.egarcia.harness")?.let { add(EnvSignal("harness_visible", "platform", "medium", "The harness app is visible to other apps: dev.egarcia.harness", it)) }
     }
 }
