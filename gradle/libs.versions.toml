@@ -1,0 +1,16 @@
+[versions]
+agp = "8.11.2"
+kotlin = "2.2.21"
+kotlinxSerialization = "1.7.3"
+junit = "4.13.2"
+talsec = "19.3.1"
+
+[libraries]
+talsec-freerasp = { module = "com.aheaditec.talsec.security:TalsecSecurity-Community", version.ref = "talsec" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+junit = { module = "junit:junit", version.ref = "junit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
