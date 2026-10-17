@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.analysis
+package dev.egarcia.botlab.analysis
 
 import kotlinx.serialization.Serializable
 

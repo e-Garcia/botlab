@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.analysis
+package dev.egarcia.botlab.analysis
 
 /** Plain-text report for the screen and the console. */
 object ReportText {

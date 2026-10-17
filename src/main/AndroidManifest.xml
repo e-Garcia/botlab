@@ -9,7 +9,7 @@
         <intent>
             <action android:name="android.accessibilityservice.AccessibilityService" />
         </intent>
-        <package android:name="ga.egarcia.harness" />
+        <package android:name="dev.egarcia.harness" />
     </queries>
 
     <application
@@ -34,9 +34,9 @@
             android:exported="true"
             android:permission="android.permission.DUMP">
             <intent-filter>
-                <action android:name="ga.egarcia.botlab.RESET" />
-                <action android:name="ga.egarcia.botlab.SAVE" />
-                <action android:name="ga.egarcia.botlab.RASP" />
+                <action android:name="dev.egarcia.botlab.RESET" />
+                <action android:name="dev.egarcia.botlab.SAVE" />
+                <action android:name="dev.egarcia.botlab.RASP" />
             </intent-filter>
         </receiver>
     </application>

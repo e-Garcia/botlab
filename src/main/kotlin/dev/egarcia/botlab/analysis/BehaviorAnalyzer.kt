@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.analysis
+package dev.egarcia.botlab.analysis
 
 import kotlin.math.abs
 import kotlin.math.hypot
@@ -28,7 +28,7 @@ data class Report(val findings: List<Finding>, val score: Int, val verdict: Verd
 /**
  * Client-side heuristics of the kind anti-abuse SDKs use on touch, keyboard and accessibility data. Thresholds are
  * illustrative, not any vendor's: this shows which of our own actions are *observable*, not what a specific
- * service (ExampleApp's, a bank's) actually decides. Server-side signals cannot be tested from the phone.
+ * service (a messaging app's, a bank's) actually decides. Server-side signals cannot be tested from the phone.
  */
 object BehaviorAnalyzer {
 

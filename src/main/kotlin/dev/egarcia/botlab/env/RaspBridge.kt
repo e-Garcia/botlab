@@ -1,4 +1,4 @@
-package ga.egarcia.botlab.env
+package dev.egarcia.botlab.env
 
 import android.app.Application
 import android.content.pm.PackageManager
@@ -12,7 +12,7 @@ import app.talsec.rasp.security.api.Talsec
 import app.talsec.rasp.security.api.TalsecConfig
 import app.talsec.rasp.security.api.TalsecMode
 import app.talsec.rasp.security.api.ThreatListener
-import ga.egarcia.botlab.analysis.EnvSignal
+import dev.egarcia.botlab.analysis.EnvSignal
 import java.security.MessageDigest
 import java.util.concurrent.CopyOnWriteArrayList
 

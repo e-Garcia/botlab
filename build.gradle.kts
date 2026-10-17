@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "ga.egarcia.botlab"
+    namespace = "dev.egarcia.botlab"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "ga.egarcia.botlab"
+        applicationId = "dev.egarcia.botlab"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
