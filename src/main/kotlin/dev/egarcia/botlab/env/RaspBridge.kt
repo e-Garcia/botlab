@@ -2,6 +2,7 @@ package dev.egarcia.botlab.env
 
 import android.app.Application
 import android.content.pm.PackageManager
+import android.os.Build
 import android.util.Base64
 import app.talsec.rasp.security.api.MalwareScanScope
 import app.talsec.rasp.security.api.ReasonMode
@@ -111,10 +112,27 @@ object RaspBridge {
         if (signals.none { it.id == "rasp:$id" }) signals += EnvSignal("rasp:$id", "freeRASP", severity, title, detail)
     }
 
-    /** freeRASP verifies the app's own signature; use whichever key signed this build so debug builds work. */
+    /** freeRASP verifies the app's own signature; use whichever key signed this build so debug builds work.
+     * Three API tiers because minSdk 26 predates both `PackageInfoFlags` (33) and `GET_SIGNING_CERTIFICATES` (28). */
     private fun signingCertHash(app: Application): String {
-        val info = app.packageManager.getPackageInfo(app.packageName, PackageManager.PackageInfoFlags.of(PackageManager.GET_SIGNING_CERTIFICATES.toLong()))
-        val cert = info.signingInfo!!.apkContentsSigners.first().toByteArray()
+        val pm = app.packageManager
+        val cert: ByteArray = when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> {
+                val info = pm.getPackageInfo(app.packageName, PackageManager.PackageInfoFlags.of(PackageManager.GET_SIGNING_CERTIFICATES.toLong()))
+                info.signingInfo!!.apkContentsSigners.first().toByteArray()
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.P -> {
+                @Suppress("DEPRECATION")
+                val info = pm.getPackageInfo(app.packageName, PackageManager.GET_SIGNING_CERTIFICATES)
+                info.signingInfo!!.apkContentsSigners.first().toByteArray()
+            }
+            else -> {
+                @Suppress("DEPRECATION")
+                val info = pm.getPackageInfo(app.packageName, PackageManager.GET_SIGNATURES)
+                @Suppress("DEPRECATION")
+                info.signatures!!.first().toByteArray()
+            }
+        }
         return Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(cert), Base64.NO_WRAP)
     }
 }

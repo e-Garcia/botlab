@@ -29,7 +29,8 @@ object EnvironmentProbe {
             val pkg = info.resolveInfo.serviceInfo.packageName
             val readsScreen = info.capabilities and AccessibilityServiceInfo.CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT != 0
             val gestures = info.capabilities and AccessibilityServiceInfo.CAPABILITY_CAN_PERFORM_GESTURES != 0
-            val screenshots = info.capabilities and AccessibilityServiceInfo.CAPABILITY_CAN_TAKE_SCREENSHOT != 0
+            val screenshots = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R &&
+                info.capabilities and AccessibilityServiceInfo.CAPABILITY_CAN_TAKE_SCREENSHOT != 0
             val tool = if (Build.VERSION.SDK_INT >= 34) info.isAccessibilityTool else null
             val severity = when {
                 tool == true -> "info"
@@ -72,7 +73,12 @@ object EnvironmentProbe {
     private fun installSources(context: Context): List<EnvSignal> = buildList {
         val pm = context.packageManager
         fun describe(pkg: String) = runCatching {
-            val source = pm.getInstallSourceInfo(pkg).installingPackageName
+            val source = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                pm.getInstallSourceInfo(pkg).installingPackageName
+            } else {
+                @Suppress("DEPRECATION")
+                pm.getInstallerPackageName(pkg)
+            }
             val debuggable = pm.getApplicationInfo(pkg, 0).flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
             "installer=${source ?: "none (sideloaded)"}, debuggable=$debuggable"
         }.getOrNull()
