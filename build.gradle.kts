@@ -2,7 +2,6 @@
 // harness (or any automation) reveals. It embeds freeRASP, a real RASP SDK, and adds its own behaviour analysis.
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
 }
 
