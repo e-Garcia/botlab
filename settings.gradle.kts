@@ -7,14 +7,11 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
-        // freeRASP (Talsec) and its device-fingerprinting dependency, scoped so nothing else can resolve from them.
-        maven("https://europe-west3-maven.pkg.dev/talsec-artifact-repository/freerasp") {
-            content { includeGroup("com.aheaditec.talsec.security") }
-        }
+        // freeRASP (Talsec) - unscoped; community edition requires auth on GCP Artifact Registry
+        maven("https://europe-west3-maven.pkg.dev/talsec-artifact-repository/freerasp")
         maven("https://jitpack.io") {
             content {
                 includeGroup("com.github.fingerprintjs")

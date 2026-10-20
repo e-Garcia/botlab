@@ -2,7 +2,6 @@
 // harness (or any automation) reveals. It embeds freeRASP, a real RASP SDK, and adds its own behaviour analysis.
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -35,7 +34,8 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.talsec.freerasp)
+    // Use cached local AAR since Talsec freeRASP repository is unavailable
+    implementation(files("libs/TalsecSecurity-Community-19.3.1.aar"))
     implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
