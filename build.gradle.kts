@@ -34,7 +34,8 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.talsec.freerasp)
+    // Use cached local AAR since Talsec freeRASP repository is unavailable
+    implementation(files("libs/TalsecSecurity-Community-19.3.1.aar"))
     implementation(libs.kotlinx.serialization.json)
 
     testImplementation(libs.junit)
